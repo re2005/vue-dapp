@@ -100,7 +100,7 @@ export class MetaMaskConnector extends Connector<
       method: 'eth_requestAccounts',
       params: [{ eth_accounts: {} }],
     })
-    console.warn('Metamask accounts', accounts)
+    console.warn('Metamask connector', accounts)
     const account = accounts[0]
 
     return {

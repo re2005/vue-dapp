@@ -76,6 +76,7 @@ export function useWallet(options: useWalletOptions = { useEthers: true }) {
       if (!connector) throw new ConnectorNotFoundError()
 
       const { provider } = await connector.connect()
+      console.warn('provider', provider)
 
       wallet.connector = markRaw(connector)
       wallet.provider = markRaw(provider)
