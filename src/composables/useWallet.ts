@@ -75,6 +75,7 @@ export function useWallet(options: useWalletOptions = { useEthers: true }) {
     try {
       if (!connector) throw new ConnectorNotFoundError()
 
+      console.warn('connector', connector)
       const { provider } = await connector.connect()
       console.warn('provider', provider)
 
