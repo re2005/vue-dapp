@@ -70,6 +70,7 @@ export function useWallet(options: useWalletOptions = { useEthers: true }) {
   async function connectWith(connector: Connector) {
     wallet.error = ''
     wallet.status = 'connecting'
+    console.log('connectWith')
 
     // 1. connect wallet
     try {
@@ -84,6 +85,7 @@ export function useWallet(options: useWalletOptions = { useEthers: true }) {
     } catch (err: any) {
       console.log('Failed to use ConnectWith', err)
       await disconnect() // will also clearWallet()
+      clearWallet()
       wallet.error = err.message
       throw new ConnectError(err)
     }
