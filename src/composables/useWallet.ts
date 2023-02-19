@@ -82,6 +82,7 @@ export function useWallet(options: useWalletOptions = { useEthers: true }) {
       wallet.connector = markRaw(connector)
       wallet.provider = markRaw(provider)
     } catch (err: any) {
+      console.log('Failed to use ConnectWith', err)
       await disconnect() // will also clearWallet()
       wallet.error = err.message
       throw new ConnectError(err)
